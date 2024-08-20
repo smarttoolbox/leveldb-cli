@@ -1,4 +1,4 @@
-module github.com/liderman/leveldb-cli
+module github.com/smarttoolbox/leveldb-cli
 
 go 1.12
 

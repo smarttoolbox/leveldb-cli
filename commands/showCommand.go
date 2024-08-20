@@ -12,7 +12,7 @@ import (
 	"fmt"
 	"text/tabwriter"
 
-	"github.com/liderman/leveldb-cli/cliutil"
+	"github.com/smarttoolbox/leveldb-cli/cliutil"
 	"github.com/syndtr/goleveldb/leveldb/iterator"
 	"github.com/syndtr/goleveldb/leveldb/util"
 )

@@ -10,7 +10,7 @@ Installation and build
 ----------------------
 
 ```
-go install github.com/liderman/leveldb-cli@latest
+go install github.com/smarttoolbox/leveldb-cli@latest
 ```
 
 Requirements
