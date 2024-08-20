@@ -36,6 +36,17 @@ func ToString(format string, value []byte) string {
 	return string(value)
 }
 
+func FromString(format, value string) []byte {
+	switch format {
+	case "hex":
+		dst, _ := hex.DecodeString(value)
+		return dst
+	default:
+	}
+
+	return []byte(value)
+}
+
 // Converts data from bson type to a string
 func bsonToString(value []byte) string {
 	var dst interface{}

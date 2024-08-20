@@ -146,12 +146,15 @@ func main() {
 		// Command: put and set
 		case args[0] == "put":
 		case args[0] == "set":
-			if len(args) != 3 {
+			if len(args) < 3 || len(args) > 4 {
 				fmt.Printf("Bad format. Please use '%s KEY VALUE'\n", args[0])
 				break
 			}
-
-			fmt.Println(commands.Set(args[1], args[2]))
+			format := ""
+			if len(args) == 4 {
+				format = args[3]
+			}
+			fmt.Println(commands.Set(args[1], args[2], format))
 			break
 		// Command: get
 		case args[0] == "get":

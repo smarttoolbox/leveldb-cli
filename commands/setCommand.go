@@ -8,13 +8,15 @@ package commands
 
 import (
 	"fmt"
+
+	"github.com/smarttoolbox/leveldb-cli/cliutil"
 )
 
 // The command set a value.
 // It sets the value for the selected key.
 //
 // Returns a string containing information about the result of the operation.
-func Set(key, value string) string {
+func Set(key, value, format string) string {
 	if !isConnected {
 		return AppError(ErrDbDoesNotOpen)
 	}
@@ -22,8 +24,11 @@ func Set(key, value string) string {
 	if key == "" {
 		return AppError(ErrKeyIsEmpty)
 	}
-
-	err := dbh.Put([]byte(key), []byte(value), nil)
+	v := []byte(value)
+	if format != "" {
+		v = cliutil.FromString(format, value)
+	}
+	err := dbh.Put([]byte(key), v, nil)
 	if err != nil {
 		return fmt.Sprintf(
 			AppError(ErrUnableToWrite),
